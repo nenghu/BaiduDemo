@@ -28,6 +28,8 @@
         }
     }];
     
+    NSLog(@"今天终于连上远程git仓库");
+    
     
     // Do any additional setup after loading the view, typically from a nib.
 }
