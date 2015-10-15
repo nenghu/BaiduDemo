@@ -7,31 +7,29 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
-
+#import <BaiduMapAPI_Map/BMKMapView.h>
+@interface ViewController ()<BMKMapViewDelegate>
+@property(nonatomic,strong)BMKMapView * mapView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    view.backgroundColor = [UIColor redColor];
-        [self.view addSubview:view];
-    [UIView animateWithDuration:2.0 animations:^{
-        view.transform = CGAffineTransformMakeScale(2.0, 2.0);
-    } completion:^(BOOL finished) {
-        if (finished) {
-            view.transform = CGAffineTransformMakeScale(1.0, 1.0);
-        }
-    }];
-    
-    NSLog(@"今天终于连上远程git仓库");
-    
-    
+    _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    self.view = _mapView;
+
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [_mapView viewWillAppear];
+    _mapView.delegate = self;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [_mapView viewWillDisappear];
+    _mapView.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning {
