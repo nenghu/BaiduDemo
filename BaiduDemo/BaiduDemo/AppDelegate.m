@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "BNCoreServices.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +22,8 @@
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+    [BNCoreServices_Instance initServices:@"z3rfiws0pG2GdtGoVkMPHAzE"];
+    [BNCoreServices_Instance startServicesAsyn:nil fail:nil];
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     return YES;
