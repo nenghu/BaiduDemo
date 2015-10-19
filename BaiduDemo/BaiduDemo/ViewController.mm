@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <BaiduMapAPI_Map/BMKMapView.h>
+#import "PreparePay.h"
 @interface ViewController ()<BMKMapViewDelegate>
 @property(nonatomic,strong)BMKMapView * mapView;
 @end
@@ -16,9 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
-    self.view = _mapView;
-
+//    _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+//    self.view = _mapView;
+    PreparePay * p = [[PreparePay alloc]initWithFrame:CGRectMake(100, 100, 200, 200)];
+    [self.view addSubview:p];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
